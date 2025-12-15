@@ -1,0 +1,6 @@
+pip install pytest
+
+pytest -s -v
+
+files need to be named with a _test extension
+funtions need to have a test_ prefix
