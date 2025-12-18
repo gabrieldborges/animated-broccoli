@@ -1,8 +1,11 @@
-from audioop import mul
 from typing import Dict, List
 from flask import request as FlaskRequest
-
 from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
+from src.errors.http_unprocessable_entity import HttpUnprocessableEntity
+from src.errors.http_bad_request import HttpBadRequest
+
+
+
 '''
 N número são enviados;
 
@@ -37,7 +40,7 @@ class Calculator3 :
 
     def __validate_body(self, body : Dict) -> List[float]:
         if "numbers" not in body :
-            raise Exception("Invalid request body")
+            raise HttpUnprocessableEntity("Invalid request body")
 
         input_data = body['numbers']
         return input_data
@@ -54,7 +57,7 @@ class Calculator3 :
             
     def __verify_result(self, variance : float , multiplication : float) -> None:
         if variance <  multiplication :
-            raise Exception("Process failed : variance is lower than the multiplication value.")
+            raise HttpBadRequest("Process failed : variance is lower than the multiplication value.")
         else :
             print("Success!!!!")
 
