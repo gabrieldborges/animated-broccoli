@@ -8,7 +8,6 @@ Welcome to **Animated Broccoli**! This project provides a set of RESTful calcula
 - **Error Handling:** Custom exception classes (such as `HttpBadRequest` and `HttpUnprocessableEntity`) ensure informative error responses and proper HTTP status codes.
 - **Organized Codebase:** Clear separation of concerns using Flask Blueprints, factories, and error controllers.
 
-### API Documentation
 
 #### POST `/calculator/1`
 
